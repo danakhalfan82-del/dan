@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 💖</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+    background:radial-gradient(circle at top,#2b002b 0%,#080008 40%,#000000 100%);
+    min-height:100vh;
+    overflow-x:hidden;
+    color:white;
+}
+
+/* FIRST SCREEN */
+
+.love-screen{
+    position:fixed;
+    inset:0;
+    background:radial-gradient(circle at top,#390039,#000);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    padding:20px;
+}
+
+.love-box{
+    background:rgba(10,10,10,.95);
+    border:1px solid #ff69b4;
+    border-radius:35px;
+    padding:40px 25px;
+    text-align:center;
+    width:100%;
+    max-width:430px;
+    box-shadow:0 0 45px rgba(255,20,147,.45);
+}
+
+.love-box h1{
+    color:#ffb6d9;
+    font-size:2.2rem;
+    margin-top:15px;
+    margin-bottom:25px;
+}
+
+/* CAKE */
+
+.cake{
+    position:relative;
+    width:260px;
+    height:250px;
+    margin:auto;
+}
+
+.cake-layer{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:20px;
+    opacity:0;
+    animation:dropCake .8s forwards;
+}
+
+.layer1{
+    width:180px;
+    height:45px;
+    background:#ff69b4;
+    bottom:0;
+    animation-delay:.2s;
+}
+
+.layer2{
+    width:150px;
+    height:42px;
+    background:#ff1493;
+    bottom:45px;
+    animation-delay:.8s;
+}
+
+.layer3{
+    width:120px;
+    height:40px;
+    background:#ff85c2;
+    bottom:85px;
+    animation-delay:1.4s;
+}
+
+.layer4{
+    width:90px;
+    height:35px;
+    background:#ffc0cb;
+    bottom:125px;
+    animation-delay:2s;
+}
+
+@keyframes dropCake{
+    0%{
+        transform:translate(-50%,-250px);
+        opacity:0;
+    }
+
+    100%{
+        transform:translate(-50%,0);
+        opacity:1;
+    }
+}
+
+/* CANDLE */
+
+.candle{
+    position:absolute;
+    top:10px;
+    left:50%;
+    transform:translateX(-50%);
+    width:14px;
+    height:55px;
+    background:white;
+    border-radius:10px;
+    z-index:10;
+    opacity:0;
+    animation:fadeIn .8s forwards;
+    animation-delay:2.7s;
+}
+
+.flame{
+    position:absolute;
+    top:-18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:18px;
+    height:18px;
+    background:gold;
+    border-radius:50%;
+    box-shadow:0 0 20px gold;
+    animation:flicker .5s infinite alternate;
+}
+
+@keyframes flicker{
+    from{
+        transform:translateX(-50%) scale(1);
+    }
+
+    to{
+        transform:translateX(-50%) scale(1.15);
+    }
+}
+
+@keyframes fadeIn{
+    to{
+        opacity:1;
+    }
+}
+
+/* BUTTONS */
+
+.answer-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    position:relative;
+    height:80px;
+}
+
+.answer-buttons button{
+    border:none;
+    padding:14px 28px;
+    border-radius:30px;
+    font-size:1.1rem;
+    cursor:pointer;
+    position:absolute;
+    transition:.25s;
+    color:white;
+    font-weight:bold;
+}
+
+.yes-btn{
+    background:linear-gradient(135deg,#ff1493,#ff69b4);
+    left:70px;
+    box-shadow:0 0 20px rgba(255,20,147,.6);
+}
+
+.no-btn{
+    background:#222;
+    border:1px solid #ff69b4;
+    right:70px;
+}
+
+/* MAIN PAGE */
+
+.main-page{
+    display:none;
+}
+
+.hearts-container{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+
+.heart{
+    position:absolute;
+    animation:float-up 8s ease-in infinite;
+    opacity:.85;
+}
+
+@keyframes float-up{
+
+0%{
+    transform:translateY(100vh) rotate(0deg);
+    opacity:0;
+}
+
+10%{
+    opacity:.9;
+}
+
+90%{
+    opacity:.9;
+}
+
+100%{
+    transform:translateY(-20vh) rotate(720deg);
+    opacity:0;
+}
+
+}
+
+.container{
+    position:relative;
+    z-index:1;
+    max-width:850px;
+    margin:auto;
+    padding:40px 20px;
+    text-align:center;
+}
+
+.age-badge{
+    display:inline-block;
+    background:linear-gradient(45deg,#ff1493,#ff69b4);
+    color:white;
+    font-size:4rem;
+    font-weight:bold;
+    width:125px;
+    height:125px;
+    line-height:125px;
+    border-radius:50%;
+    box-shadow:0 0 35px #ff1493;
+    animation:pulse 2s infinite;
+    margin-bottom:20px;
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+.title{
+    font-size:3rem;
+    text-shadow:0 0 20px #ff69b4;
+}
+
+.name{
+    font-size:2.5rem;
+    color:#ff69b4;
+    text-shadow:0 0 25px #ff1493;
+    margin-top:10px;
+}
+
+.date{
+    color:#ffd6ec;
+    font-size:1.2rem;
+    margin-top:15px;
+}
+
+.party-line{
+    font-size:2rem;
+    margin:25px 0;
+    animation:pulse 2s infinite;
+}
+
+.countdown,
+.messages-section,
+.wishes{
+    background:rgba(15,15,15,.92);
+    border:1px solid rgba(255,105,180,.5);
+    border-radius:25px;
+    padding:32px;
+    margin:30px 0;
+    box-shadow:0 0 35px rgba(255,20,147,.25);
+}
+
+.countdown h2,
+.messages-section h2,
+.wishes h2{
+    color:#ff69b4;
+    margin-bottom:20px;
+}
+
+.countdown-display{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.countdown-item{
+    background:linear-gradient(135deg,#ff1493,#4b004b);
+    color:white;
+    padding:18px;
+    border-radius:18px;
+    min-width:85px;
+    box-shadow:0 0 18px rgba(255,20,147,.5);
+}
+
+.number{
+    font-size:2rem;
+    font-weight:bold;
+}
+
+.label{
+    font-size:.85rem;
+}
+
+/* MESSAGE CARDS */
+
+.card-grid{
+    display:grid;
+    gap:18px;
+}
+
+.love-card{
+    background:linear-gradient(135deg,#170017,#2b002b);
+    border:1px solid #ff69b4;
+    border-radius:20px;
+    padding:22px;
+    cursor:pointer;
+    box-shadow:0 0 22px rgba(255,105,180,.25);
+    transition:.3s;
+}
+
+.love-card:hover{
+    transform:scale(1.03);
+}
+
+.love-card h3{
+    color:#ffb6d9;
+}
+
+.card-message{
+    display:none;
+    margin-top:15px;
+    color:#f8d7ea;
+    line-height:1.8;
+    font-size:1.05rem;
+}
+
+.love-card.open .card-message{
+    display:block;
+}
+
+/* GALLERY */
+
+.gallery-title{
+    color:#ffb6d9;
+    margin:35px 0 20px;
+    text-shadow:0 0 15px #ff1493;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+    margin:30px 0;
+}
+
+.gallery-item{
+    background:rgba(20,20,20,.9);
+    border:1px solid #ff69b4;
+    border-radius:20px;
+    overflow:hidden;
+    aspect-ratio:1;
+    box-shadow:0 0 25px rgba(255,105,180,.3);
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* WISHES */
+
+.wish-item{
+    background:linear-gradient(135deg,#170017,#2b002b);
+    border-left:4px solid #ff69b4;
+    color:#ffd6ec;
+    border-radius:12px;
+    padding:15px 20px;
+    margin:12px 0;
+    text-align:left;
+}
+
+.footer{
+    margin-top:40px;
+    color:#ffd6ec;
+    font-size:1.2rem;
+}
+
+.big-heart{
+    font-size:3rem;
+    animation:heartbeat 1s infinite;
+}
+
+@keyframes heartbeat{
+
+0%,100%{
+    transform:scale(1);
+}
+
+50%{
+    transform:scale(1.25);
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FIRST SCREEN -->
+
+<div class="love-screen" id="loveScreen">
+
+    <div class="love-box">
+
+        <div class="cake">
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+            <div class="cake-layer layer1"></div>
+            <div class="cake-layer layer2"></div>
+            <div class="cake-layer layer3"></div>
+            <div class="cake-layer layer4"></div>
+
+        </div>
+
+        <h1>Do you love me? 💖</h1>
+
+        <div class="answer-buttons">
+
+            <button class="yes-btn" onclick="showBirthday()">
+                Yes 💕
+            </button>
+
+            <button class="no-btn" id="noBtn">
+                No 😭
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MAIN PAGE -->
+
+<div class="main-page" id="mainPage">
+
+<div class="hearts-container" id="hearts"></div>
+
+<div class="container">
+
+<div class="header">
+
+<div class="age-badge">19</div>
+
+<h1 class="title">Happy Birthday!</h1>
+
+<p class="name">My JOJO💕</p>
+
+<p class="date">May 10th, 2007</p>
+
+</div>
+
+<div class="party-line">
+🎈 🎂 🎁 💖 🎉 💖 🎁 🎂 🎈
+</div>
+
+<!-- COUNTDOWN -->
+
+<div class="countdown" id="countdown-section">
+
+<h2>⏰ Countdown to Your Special Day</h2>
+
+<div class="countdown-display" id="countdown"></div>
+
+</div>
+
+<!-- MESSAGE CARDS -->
+
+<div class="messages-section">
+
+<h2>💌 Click the Cards 💌</h2>
+
+<div class="card-grid">
+
+<div class="love-card" onclick="toggleCard(this)">
+
+<h3>Card 1 💖</h3>
+
+<p class="card-message">
+Happy 19th birthday to the most special person in my life.
+You make my world brighter, softer, and full of love.
+</p>
+
+</div>
+
+<div class="love-card" onclick="toggleCard(this)">
+
+<h3>Card 2 🖤</h3>
+
+<p class="card-message">
+I hope this year brings you happiness, success, peace, and everything beautiful.
+You deserve the best always💕. I,m your best of course:)
+</p>
+
+</div>
+
+<div class="love-card" onclick="toggleCard(this)">
+
+<h3>Card 3 🎂</h3>
+
+<p class="card-message">
+Thank you for being you.
+I am so lucky to have you in my life 💖
+</p>
+
+</div>
+
+<div class="love-card" onclick="toggleCard(this)">
+
+<h3>Card 4 💌</h3>
+
+<p class="card-message">
+I love you more than words can say 💖
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PHOTOS -->
+
+<h2 class="gallery-title">📸 Our Memories</h2>
+
+<div class="gallery">
+
+<div class="gallery-item">
+<img src="photo1.jpg">
+</div>
+
+<div class="gallery-item">
+<img src="photo2.jpg">
+</div>
+
+<div class="gallery-item">
+<img src="photo3.jpg">
+</div>
+
+</div>
+
+<!-- WISHES -->
+
+<div class="wishes">
+
+<h2>🌟 My Wishes For You 🌟</h2>
+
+<div class="wish-item">
+✨ May all your dreams come true this year
+</div>
+
+<div class="wish-item">
+💪 May you always be strong and successful my baby Dr
+</div>
+
+<div class="wish-item">
+😊 May happiness follow you everywhere
+</div>
+
+<div class="wish-item">
+🌙 May your heart always feel peaceful
+</div>
+
+<div class="wish-item">
+💖 May you always feel loved my sweet boy
+</div>
+
+</div>
+
+<div class="footer">
+
+<p class="big-heart">💖</p>
+
+<p>
+Forever yours,<br>
+<strong>دلوعتك</strong>
+</p>
+
+</div>
+
+</div>
+</div>
+
+<script>
+
+/* SHOW MAIN PAGE */
+
+function showBirthday(){
+
+document.getElementById('loveScreen').style.display='none';
+
+document.getElementById('mainPage').style.display='block';
+
+}
+
+/* RUNAWAY NO BUTTON */
+
+const noBtn=document.getElementById('noBtn');
+
+noBtn.addEventListener('mouseover',()=>{
+
+const x=Math.floor(Math.random()*250)-120;
+
+const y=Math.floor(Math.random()*120)-60;
+
+noBtn.style.transform=`translate(${x}px,${y}px)`;
+
+});
+
+/* OPEN MESSAGE CARDS */
+
+function toggleCard(card){
+
+card.classList.toggle('open');
+
+}
+
+/* FLOATING DECORATIONS */
+
+function createHearts(){
+
+const container=document.getElementById('hearts');
+
+const decorations=[
+'💖','💕','💗','💓',
+'💘','🩷','🎈','🎂',
+'🎁','🎉'
+];
+
+for(let i=0;i<35;i++){
+
+const item=document.createElement('div');
+
+item.className='heart';
+
+item.textContent=decorations[Math.floor(Math.random()*decorations.length)];
+
+item.style.left=Math.random()*100+'vw';
+
+item.style.animationDelay=Math.random()*8+'s';
+
+item.style.fontSize=(16+Math.random()*24)+'px';
+
+container.appendChild(item);
+
+}
+
+}
+
+/* COUNTDOWN */
+
+function updateCountdown(){
+
+const birthday=new Date('2026-05-10T00:00:00');
+
+const now=new Date();
+
+const diff=birthday-now;
+
+const countdownSection=document.getElementById('countdown-section');
+
+const countdown=document.getElementById('countdown');
+
+if(diff<=0){
+
+countdownSection.innerHTML=`
+<h2>🎉 TODAY IS THE DAY 🎉</h2>
+
+<p style="font-size:1.5rem;color:#ffb6d9;">
+Happy Birthday 💖🎂🎈
+</p>
+`;
+
+return;
+
+}
+
+const days=Math.floor(diff/(1000*60*60*24));
+
+const hours=Math.floor((diff/(1000*60*60))%24);
+
+const minutes=Math.floor((diff/(1000*60))%60);
+
+const seconds=Math.floor((diff/1000)%60);
+
+countdown.innerHTML=`
+
+<div class="countdown-item">
+<div class="number">${days}</div>
+<div class="label">Days</div>
+</div>
+
+<div class="countdown-item">
+<div class="number">${hours}</div>
+<div class="label">Hours</div>
+</div>
+
+<div class="countdown-item">
+<div class="number">${minutes}</div>
+<div class="label">Minutes</div>
+</div>
+
+<div class="countdown-item">
+<div class="number">${seconds}</div>
+<div class="label">Seconds</div>
+</div>
+
+`;
+
+}
+
+createHearts();
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+</script>
+
+</body>
+</html>
